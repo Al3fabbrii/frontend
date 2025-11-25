@@ -1,13 +1,14 @@
 section {
     float: left;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 h2 {
     margin-bottom: 1.5rem;
     font-size: 2rem;
-    color: #336699;
+    color: #333;
 }
 
 .filters {
@@ -20,8 +21,8 @@ h2 {
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: flex;
+    justify-content: center;
     gap: 2rem;
     list-style: none;
     padding: 0;
@@ -31,4 +32,5 @@ h2 {
         display: flex;
         justify-content: center;
     }
+
 }
