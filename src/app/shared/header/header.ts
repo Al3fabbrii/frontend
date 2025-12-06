@@ -15,9 +15,13 @@ export class Header {
   private router = inject(Router);
 
   goToCheckout(): void {
-
     // Logic to navigate to the checkout page
     this.router.navigate(['/checkout']);
+  }
+
+  goToHome(): void {
+    // Logic to navigate to the home page
+    this.router.navigate(['/']);
   }
 
 }

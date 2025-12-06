@@ -1,9 +1,13 @@
 .header {
     background-color: white;
-    color: rgb(201, 30, 30);
-    font-weight: bold;
-    font-size: 2rem;
-    padding: 1rem;
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .Title {
@@ -23,6 +27,16 @@ mat-icon {
     border-width: 3px;
     color: white;
     border-radius: 5px;
+    margin: 2px;
+}
+
+.CartButton {
+    background-color: #336699;
+    border-color: black;
+    border-width: 3px;
+    color: white;
+    border-radius: 5px;
+    margin: 2px;
 }
 
 mat-toolbar {

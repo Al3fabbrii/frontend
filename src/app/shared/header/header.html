@@ -1,8 +1,8 @@
-<mat-toolbar>
-  <button matIconButton class="MenuButton" aria-label="Example icon-button with menu icon">
+<mat-toolbar class="header">
+  <button matIconButton class="MenuButton" aria-label="Example icon-button with menu icon" (click)="goToHome()">
     <mat-icon>menu</mat-icon>
   </button>
-  <button matIconButton class="MenuButton" aria-label="Example icon-button with checkout icon" (click)="goToCheckout()">
+  <button matIconButton class="CartButton" aria-label="Example icon-button with checkout icon" (click)="goToCheckout()">
     <mat-icon>shopping_cart</mat-icon>
   </button>
   <span class="Title">Sito web esame Sistemi Web</span>
