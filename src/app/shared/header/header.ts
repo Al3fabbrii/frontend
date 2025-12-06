@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,5 +12,12 @@ import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
   styleUrl: './header.scss',
 })
 export class Header {
+  private router = inject(Router);
+
+  goToCheckout(): void {
+
+    // Logic to navigate to the checkout page
+    this.router.navigate(['/checkout']);
+  }
 
 }
