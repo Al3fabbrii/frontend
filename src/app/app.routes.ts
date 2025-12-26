@@ -14,6 +14,7 @@ export const routes: Routes = [
         loadComponent: () => import('./features/products/product-page/product-page').then(m => m.ProductPage),
     },
     { path: 'product/:id', component: ProductDetailPage },
+    { path: 'cart', loadComponent: () => import('./features/cart/cart-page/cart-page').then(m => m.CartPage), canActivate: [authGuard] },
     { path: 'checkout', component: CheckoutPage, canActivate: [authGuard] },
     {
         path: 'register',

@@ -2,28 +2,40 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { switchMap, map } from 'rxjs';
 import { ProductApi } from '../../../core/services/product-api';
+import { CartService } from '../../../core/services/cart';
 import { Product } from '../../../core/models/product';
-import { NgIf, AsyncPipe, CurrencyPipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-product-detail-page',
   standalone: true,
   templateUrl: './product-detail-page.html',
   styleUrls: ['./product-detail-page.scss'],
-  imports: [RouterModule, NgIf, AsyncPipe, CurrencyPipe, MatCardModule, MatButtonModule],
+  imports: [RouterModule, AsyncPipe, CurrencyPipe, MatCardModule, MatButtonModule],
 })
 
 export class ProductDetailPage {
   private route = inject(ActivatedRoute);
   private svc = inject(ProductApi);
+  private cartService = inject(CartService);
+
   readonly product$ = this.route.paramMap.pipe(
     map(params => params.get('id') as string),
     switchMap(id => this.svc.getById(id)),
   );
 
   addToCart(product: Product) {
-    // Logica per aggiungere il prodotto al carrello
-    console.log(`Prodotto aggiunto al carrello: ${product.title}`);
+    this.cartService.addItem(product.id, 1).subscribe({
+      next: () => {
+        console.log(`✓ ${product.title} aggiunto al carrello`);
+        alert(`${product.title} aggiunto al carrello!`);
+      },
+      error: (err) => {
+        console.error('Error adding to cart:', err);
+        alert('Errore durante l\'aggiunta al carrello. Assicurati di essere loggato.');
+      }
+    });
   }
 }

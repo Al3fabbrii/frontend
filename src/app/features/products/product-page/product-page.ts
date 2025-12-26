@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { Product } from '../../../core/models/product';
 import { ProductApi } from '../../../core/services/product-api';
+import { CartService } from '../../../core/services/cart';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
@@ -25,6 +26,7 @@ const cmp = (s: Sort) => (a: Product, b: Product) =>
 })
 export class ProductPage {
   private service = inject(ProductApi);
+  private cartService = inject(CartService);
   protected readonly products$ = this.service.list();
 
 
@@ -85,7 +87,16 @@ export class ProductPage {
   }
 
   onAddToCart(product: Product) {
-    console.log('Aggiunto al carrello:', product);
+    this.cartService.addItem(product.id, 1).subscribe({
+      next: () => {
+        console.log(`✓ ${product.title} aggiunto al carrello`);
+        alert(`${product.title} aggiunto al carrello!`);
+      },
+      error: (err) => {
+        console.error('Error adding to cart:', err);
+        alert('Errore durante l\'aggiunta al carrello. Assicurati di essere loggato.');
+      }
+    });
   }
   updateSort(sort: Sort) {
     this.filters$.next({ ...this.filters$.value, sort: sort });

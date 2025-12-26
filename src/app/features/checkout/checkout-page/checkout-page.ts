@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { inject } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,6 +11,7 @@ import { OrderService } from '../../../core/services/order-service';
 import { map } from 'rxjs/operators';
 import { take } from 'rxjs/operators';
 import { Order } from '../../../core/models/order';
+import { CartItem } from '../../../core/models/cart';
 
 @Component({
   selector: 'app-checkout-page',
@@ -18,7 +19,7 @@ import { Order } from '../../../core/models/order';
   templateUrl: './checkout-page.html',
   styleUrl: './checkout-page.scss',
 })
-export class CheckoutPage {
+export class CheckoutPage implements OnInit {
   private fb = inject(FormBuilder);
 
   readonly form = this.fb.group({
@@ -51,14 +52,21 @@ export class CheckoutPage {
 
   private cart = inject(CartService);
   private orderService = inject(OrderService);
-  readonly items$ = this.cart.list();
-  readonly total$ = this.items$.pipe(
-    map(items => items.reduce(
-      (sum, item) => sum + item.price, 0))
+  readonly cart$ = this.cart.cart$;
+  readonly items$ = this.cart$.pipe(
+    map(cart => cart?.items || [])
+  );
+  readonly total$ = this.cart$.pipe(
+    map(cart => cart?.total || 0)
   );
   loading = false;
   orderSuccess = false;
   orderError = false;
+
+  ngOnInit(): void {
+    // Carica il carrello all'inizializzazione
+    this.cart.loadCart().subscribe();
+  }
 
   onSubmit(): void {
     if (this.form.invalid) {
@@ -71,13 +79,13 @@ export class CheckoutPage {
     this.orderSuccess = false;
     this.orderError = false;
     const value = this.form.getRawValue();
-    this.items$.pipe(take(1)).subscribe(items => {
+    this.items$.pipe(take(1)).subscribe((items: CartItem[]) => {
       const order: Order = {
         customer: value.customer!,
         address: value.address!,
-        items,
+        items: items.map(item => item.product),
         total: items.reduce(
-          (sum, it) => sum + it.price, 0),
+          (sum: number, it: CartItem) => sum + it.subtotal, 0),
         createdAt: new Date().toISOString()
       };
       this.orderService.create(order).subscribe({

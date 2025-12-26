@@ -41,6 +41,9 @@ export class Header {
   goToRegister(): void {
     this.router.navigate(['/register']);
   }
+  goToCart(): void {
+    this.router.navigate(['/cart']);
+  }
 
   goToUserArea(): void {
 

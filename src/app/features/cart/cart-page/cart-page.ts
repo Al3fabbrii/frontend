@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartService } from '../../../core/services/cart';
+import { MatCardImage, MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
+import { CommonModule } from "@angular/common";
+import { CurrencyPipe } from "@angular/common";
+import { MatIconModule } from "@angular/material/icon";
+
+
+@Component({
+  selector: 'app-cart-page',
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule, CommonModule, CurrencyPipe, MatIconModule],
+  templateUrl: './cart-page.html',
+  styleUrls: ['./cart-page.scss'],
+})
+export class CartPage implements OnInit {
+  cartService = inject(CartService);
+  private router = inject(Router);
+
+  ngOnInit() {
+    this.cartService.loadCart().subscribe();
+  }
+
+  goToCheckout() {
+    this.router.navigate(['/checkout']);
+  }
+
+  increaseQuantity(item: any) {
+    this.cartService.updateItem(item.id, item.quantity + 1).subscribe();
+  }
+  decreaseQuantity(item: any) {
+    if (item.quantity > 1) {
+      this.cartService.updateItem(item.id, item.quantity - 1).subscribe();
+    }
+  }
+
+  removeItem(item: any) {
+    this.cartService.removeItem(item.id).subscribe();
+  }
+
+}
