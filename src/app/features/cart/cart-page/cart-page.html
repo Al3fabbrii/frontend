@@ -3,7 +3,10 @@
 
     @if (cartService.cart$ | async; as cart) {
     @if (cart.items.length === 0) {
-    <p style="text-align: center;">Il carrello è vuoto</p>
+    <p style="text-align: center;">Il carrello è vuoto, aggiungi prodotti dalla homepage</p>
+    <button mat-raised-button color="accent" [routerLink]="['/']">
+        Torna alla homepage
+    </button>
     } @else {
     <div class="cart-items">
         @for (item of cart.items; track item.id) {

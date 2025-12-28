@@ -4,6 +4,9 @@
     @if (wishlistService.wishlist$ | async; as wishlist) {
     @if (wishlist.items.length === 0) {
     <p style="text-align: center;">Non ci sono prodotti salvati, aggiungi prodotti dalla homepage</p>
+    <button mat-raised-button color="accent" [routerLink]="['/']">
+        Torna alla homepage
+    </button>
     } @else {
     <div class="wishlist-items">
         @for (item of wishlist.items; track item.id) {

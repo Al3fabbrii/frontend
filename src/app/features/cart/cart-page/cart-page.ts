@@ -7,12 +7,13 @@ import { MatButtonModule } from "@angular/material/button";
 import { CommonModule } from "@angular/common";
 import { CurrencyPipe } from "@angular/common";
 import { MatIconModule } from "@angular/material/icon";
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, CommonModule, CurrencyPipe, MatIconModule],
+  imports: [MatCardModule, MatButtonModule, CommonModule, CurrencyPipe, MatIconModule, RouterLink],
   templateUrl: './cart-page.html',
   styleUrls: ['./cart-page.scss'],
 })

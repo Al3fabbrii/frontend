@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthService } from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, MatIcon, MatToolbar, MatButton, MatToolbarRow],
+  imports: [CommonModule, MatIcon, MatToolbar],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
