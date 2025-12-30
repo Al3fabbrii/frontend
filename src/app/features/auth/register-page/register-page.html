@@ -15,8 +15,11 @@
         @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
         <div class="error" i18n="@@password-required-register">Password richiesta</div>
         }
-        <img (click)="seePassword()" src="https://www.svgrepo.com/show/390427/eye-password-see-view.svg"
-            class="see-password" i18n-alt="@@show-password-alt-register" alt="Mostra password" />
+        <button mat-icon-button matSuffix (click)="seePassword()" type="button"
+            i18n-aria-label="@@show-password-aria-register" aria-label="Mostra password">
+            <mat-icon>visibility</mat-icon>
+        </button>
+
     </mat-form-field>
     @if (errorMessage) {
     <div class="error-message">{{ errorMessage }}</div>

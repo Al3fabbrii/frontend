@@ -6,11 +6,11 @@ import { AuthService } from '../../../core/services/auth-service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-register-page',
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, ReactiveFormsModule],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',
 })

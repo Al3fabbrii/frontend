@@ -2,19 +2,22 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthService } from '../../core/services/auth-service';
+import { LocaleService } from '../../core/services/locale.service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, MatIcon, MatToolbar],
+  imports: [CommonModule, MatIcon, MatToolbar, MatMenuModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
   private router = inject(Router);
   authService = inject(AuthService);
+  localeService = inject(LocaleService);
 
   goToCheckout(): void {
     // Logic to navigate to the checkout page
@@ -49,5 +52,9 @@ export class Header {
 
   goToUserArea(): void {
     this.router.navigate(['/user-area']);
+  }
+
+  changeLanguage(languageCode: string): void {
+    this.localeService.switchLanguage(languageCode);
   }
 }

@@ -30,5 +30,20 @@
   </button>
   }
 
+  <!-- Language Selector -->
+  <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="LanguageButton"
+          i18n-aria-label="@@language-selector-aria" aria-label="Seleziona lingua">
+    <span class="language-flag">{{ localeService.currentLanguage.flag }}</span>
+  </button>
+  <mat-menu #languageMenu="matMenu">
+    @for (lang of localeService.languages; track lang.code) {
+      <button mat-menu-item (click)="changeLanguage(lang.code)"
+              [class.active-language]="lang.code === localeService.currentLanguage.code">
+        <span class="language-flag">{{ lang.flag }}</span>
+        <span>{{ lang.name }}</span>
+      </button>
+    }
+  </mat-menu>
+
   <span class="Title" i18n="@@site-title">Sito web esame Sistemi Web</span>
 </mat-toolbar>
