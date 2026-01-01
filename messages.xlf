@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="it" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="2454050363478003966" datatype="html">
         <source>Login</source>
@@ -51,39 +51,43 @@
           <context context-type="linenumber">20,22</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="show-password-alt" datatype="html">
+      <trans-unit id="show-password-aria-register" datatype="html">
         <source>Mostra password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/auth/logging-page/logging-page.html</context>
           <context context-type="linenumber">23,24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/register-page/register-page.html</context>
+          <context context-type="linenumber">19,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login-button-submit" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{ isLoading ? &apos;Login in corso...&apos; : &apos;Login&apos; }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/auth/logging-page/logging-page.html</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">34,35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="test-credentials" datatype="html">
         <source>Credenziali di test:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/auth/logging-page/logging-page.html</context>
-          <context context-type="linenumber">37,38</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="test-email" datatype="html">
         <source>Email: user@example.com</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/auth/logging-page/logging-page.html</context>
-          <context context-type="linenumber">38,39</context>
+          <context context-type="linenumber">40,41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="test-password" datatype="html">
         <source>Password: password123</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/auth/logging-page/logging-page.html</context>
-          <context context-type="linenumber">39,41</context>
+          <context context-type="linenumber">41,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register-title" datatype="html">
@@ -135,18 +139,18 @@
           <context context-type="linenumber">16,18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="show-password-alt-register" datatype="html">
-        <source>Mostra password</source>
+      <trans-unit id="register-loading" datatype="html">
+        <source>Registrazione in corso...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/auth/register-page/register-page.html</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">29,31</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register-button-submit" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ isLoading ? &apos;Registrazione in corso...&apos; : &apos;Registrati&apos; }}"/> </source>
+      <trans-unit id="register-button" datatype="html">
+        <source>Registrati</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/auth/register-page/register-page.html</context>
-          <context context-type="linenumber">26,28</context>
+          <context context-type="linenumber">31,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8624756883985812254" datatype="html">
@@ -335,35 +339,35 @@
         <source>✓ Ordine completato con successo!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/checkout/checkout-page/checkout-page.html</context>
-          <context context-type="linenumber">94,95</context>
+          <context context-type="linenumber">93,94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7411521942937101402" datatype="html">
         <source>Il tuo ordine è stato registrato correttamente.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/checkout/checkout-page/checkout-page.html</context>
-          <context context-type="linenumber">95,96</context>
+          <context context-type="linenumber">94,95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4289836006074373071" datatype="html">
         <source> Visualizza i tuoi ordini </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/checkout/checkout-page/checkout-page.html</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8976988067057815948" datatype="html">
         <source>Si è verificato un errore durante la creazione dell&apos;ordine. Riprova.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/checkout/checkout-page/checkout-page.html</context>
-          <context context-type="linenumber">105,106</context>
+          <context context-type="linenumber">103,104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7481480666186698216" datatype="html">
         <source> Il form contiene errori. Controlla i campi evidenziati. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/checkout/checkout-page/checkout-page.html</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-warning" datatype="html">
@@ -611,88 +615,172 @@
           <context context-type="linenumber">10,13</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="filters-title" datatype="html">
+        <source>Filtri</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="date-from-label" datatype="html">
+        <source>Data da</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="date-to-label" datatype="html">
+        <source>Data a</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="total-min-label" datatype="html">
+        <source>Totale minimo (€)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="total-max-label" datatype="html">
+        <source>Totale massimo (€)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sort-label-orders" datatype="html">
+        <source>Ordinamento</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sort-date-desc-orders" datatype="html">
+        <source>Data (più recente)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sort-date-asc-orders" datatype="html">
+        <source>Data (meno recente)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sort-total-desc" datatype="html">
+        <source>Totale (decrescente)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sort-total-asc" datatype="html">
+        <source>Totale (crescente)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="apply-filters-button" datatype="html">
+        <source> Applica Filtri </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="clear-filters-button" datatype="html">
+        <source> Pulisci Filtri </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="loading-orders" datatype="html">
         <source>Caricamento ordini...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">13,14</context>
+          <context context-type="linenumber">72,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="error-loading-orders" datatype="html">
         <source>Errore nel caricamento degli ordini</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">15,16</context>
+          <context context-type="linenumber">74,75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="retry-button" datatype="html">
         <source>Riprova</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">16,17</context>
+          <context context-type="linenumber">75,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="no-orders" datatype="html">
-        <source>Non hai ancora effettuato ordini</source>
+        <source>Non sono presenti ordini</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">18,19</context>
+          <context context-type="linenumber">77,78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="go-to-shop" datatype="html">
         <source>Vai allo shop</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">78,80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="order-number" datatype="html">
         <source>Ordine #<x id="INTERPOLATION" equiv-text="{{ order.id }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="customer-info-title" datatype="html">
         <source>Informazioni Cliente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">90,91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="name-label" datatype="html">
         <source>Nome:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="email-label-order" datatype="html">
         <source>Email:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">93</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shipping-address-title-order" datatype="html">
         <source>Indirizzo di Spedizione</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">37,38</context>
+          <context context-type="linenumber">96,97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="products-title-order" datatype="html">
         <source>Prodotti (<x id="INTERPOLATION" equiv-text="{{ order.items.length }}"/>)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">42,43</context>
+          <context context-type="linenumber">101,102</context>
         </context-group>
       </trans-unit>
       <trans-unit id="total-label-order" datatype="html">
         <source>Totale: <x id="INTERPOLATION" equiv-text="{{ order.total | currency }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user-area/user-area-page/user-area-page.html</context>
-          <context context-type="linenumber">56,57</context>
+          <context context-type="linenumber">115,116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="wishlist-title" datatype="html">
@@ -786,11 +874,18 @@
           <context context-type="linenumber">27,28</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="language-selector-aria" datatype="html">
+        <source>Seleziona lingua</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/header/header.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="site-title" datatype="html">
         <source>Sito web esame Sistemi Web</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/header/header.html</context>
-          <context context-type="linenumber">33,34</context>
+          <context context-type="linenumber">48,49</context>
         </context-group>
       </trans-unit>
     </body>

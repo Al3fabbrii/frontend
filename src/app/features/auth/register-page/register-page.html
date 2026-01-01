@@ -24,8 +24,11 @@
     @if (errorMessage) {
     <div class="error-message">{{ errorMessage }}</div>
     }
-    <button mat-raised-button type="submit" [disabled]="registerForm.invalid || isLoading" class="btn-primary"
-        i18n="@@register-button-submit">
-        {{ isLoading ? 'Registrazione in corso...' : 'Registrati' }}
+    <button mat-raised-button type="submit" [disabled]="registerForm.invalid || isLoading" class="btn-primary">
+        @if (isLoading) {
+            <span i18n="@@register-loading">Registrazione in corso...</span>
+        } @else {
+            <span i18n="@@register-button">Registrati</span>
+        }
     </button>
 </form>
