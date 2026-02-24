@@ -19,14 +19,14 @@ mat-card-actions {
 }
 
 .stock-warning {
-    color: #ff9800;
+    color: #e67e22;
     font-size: 12px;
     font-weight: 500;
     margin-top: 8px;
 }
 
 .stock-unavailable {
-    color: #f44336;
+    color: #c0392b;
     font-size: 12px;
     font-weight: bold;
     margin-top: 8px;
@@ -35,4 +35,5 @@ mat-card-actions {
 .title {
     font-weight: 500;
     margin-bottom: 8px;
+    color: #0d3b66;
 }

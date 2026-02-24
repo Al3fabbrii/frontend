@@ -9,6 +9,7 @@ mat-card-title {
     text-align: center;
     font-size: 30px;
     margin: auto;
+    color: #0d3b66;
 }
 
 mat-card-header {
@@ -20,7 +21,7 @@ mat-card-header {
 mat-card-content {
     margin: 20px auto 20px auto;
     font-size: 18px;
-
+    color: #1a2a3a;
 }
 
 mat-card-actions {
@@ -34,12 +35,13 @@ mat-card-actions {
     text-decoration: line-through;
     margin-right: 10px;
     font-size: 1.25em;
-    color: grey;
+    color: #7a8fa0;
 }
 
 .price-sale {
-    color: red;
+    color: #c0392b;
     font-size: 1.25em;
+    font-weight: bold;
 }
 
 .stock-info {
@@ -48,16 +50,16 @@ mat-card-actions {
     font-weight: 500;
 
     .stock-available {
-        color: #4caf50;
+        color: #27ae60;
     }
 
     .stock-low {
-        color: #ff9800;
+        color: #e67e22;
         font-weight: bold;
     }
 
     .stock-unavailable {
-        color: #f44336;
+        color: #c0392b;
         font-weight: bold;
     }
 }
