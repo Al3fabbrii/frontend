@@ -81,7 +81,7 @@ export class ProductPage {
     this.cartService.addItem(product.id, 1).subscribe({
       next: () => {
         console.log(`✓ ${product.title} aggiunto al carrello`);
-        alert(`${product.title} aggiunto al carrello!`);
+        //alert(`${product.title} aggiunto al carrello!`);
       },
       error: (err) => {
         console.error('Error adding to cart:', err);

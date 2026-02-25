@@ -32,7 +32,7 @@ export class ProductDetailPage {
     this.cartService.addItem(product.id, 1).subscribe({
       next: () => {
         console.log(`✓ ${product.title} aggiunto al carrello`);
-        alert(`${product.title} aggiunto al carrello!`);
+        //alert(`${product.title} aggiunto al carrello!`);
       },
       error: (err) => {
         console.error('Error adding to cart:', err);
@@ -45,7 +45,7 @@ export class ProductDetailPage {
     this.wishlistService.addItem(product.id.toString()).subscribe({
       next: () => {
         console.log(`✓ ${product.title} aggiunto ai preferiti`);
-        alert(`${product.title} aggiunto ai preferiti!`);
+        // alert(`${product.title} aggiunto ai preferiti!`);
       },
       error: (err) => {
         console.error('Error adding to wishlist:', err);

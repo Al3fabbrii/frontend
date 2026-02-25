@@ -28,7 +28,7 @@ export class ProductCard {
     this.wishlistService.addItem(p.id.toString()).subscribe({
       next: () => {
         console.log(`✓ ${p.title} aggiunto ai preferiti`);
-        alert(`${p.title} aggiunto ai preferiti!`);
+        //alert(`${p.title} aggiunto ai preferiti!`);
       },
       error: (err) => {
         console.error('Error adding to wishlist:', err);

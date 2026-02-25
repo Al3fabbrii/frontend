@@ -19,9 +19,15 @@
                         <p>{{ item.unitPrice | currency }}</p>
                     </div>
                     <div class="item-quantity">
+                        @if (item.quantity == 1){
+                        <button mat-icon-button disabled>
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        } @else {
                         <button mat-icon-button (click)="decreaseQuantity(item)">
                             <mat-icon>remove</mat-icon>
                         </button>
+                        }
                         <span>{{ item.quantity }}</span>
                         <button mat-icon-button (click)="increaseQuantity(item)">
                             <mat-icon>add</mat-icon>
