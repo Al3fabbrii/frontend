@@ -93,7 +93,10 @@ export class CheckoutPage implements OnInit {
           city: value.address!.city!,
           zip: value.address!.zip!
         },
-        items: items.map(item => item.product),
+        items: items.map(item => ({
+          ...item.product,
+          quantity: item.quantity
+        })),
         total: items.reduce(
           (sum: number, it: CartItem) => sum + it.subtotal, 0),
         createdAt: new Date().toISOString()
