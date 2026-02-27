@@ -7,6 +7,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { CartService } from '../../../core/services/cart';
+import { NotificationService } from '../../../core/services/notification.service';
 import { OrderService } from '../../../core/services/order-service';
 import { map } from 'rxjs/operators';
 import { take } from 'rxjs/operators';
@@ -54,6 +55,7 @@ export class CheckoutPage implements OnInit {
 
   private cart = inject(CartService);
   private orderService = inject(OrderService);
+  private notify = inject(NotificationService);
   readonly cart$ = this.cart.cart$;
   readonly items$ = this.cart$.pipe(
     map(cart => cart?.items || [])
@@ -114,7 +116,7 @@ export class CheckoutPage implements OnInit {
           this.orderError = true;
           console.error('Error creating order:', err);
           const errorMsg = err.error?.error || 'Errore durante la creazione dell\'ordine';
-          alert(errorMsg);
+          this.notify.showError(errorMsg);
         }
       });
     });

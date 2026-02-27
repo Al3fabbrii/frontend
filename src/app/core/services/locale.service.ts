@@ -1,4 +1,5 @@
 import { Injectable, LOCALE_ID, inject } from '@angular/core';
+import { NotificationService } from './notification.service';
 
 export interface Language {
   code: string;
@@ -11,6 +12,7 @@ export interface Language {
 })
 export class LocaleService {
   private localeId = inject(LOCALE_ID);
+  private notify = inject(NotificationService);
 
   // Lingue supportate
   readonly languages: Language[] = [
@@ -34,11 +36,8 @@ export class LocaleService {
 
     // In development, mostra un messaggio informativo
     if (this.isDevMode()) {
-      alert(
-        `Per visualizzare il sito in ${this.getLanguageName(languageCode)}, ` +
-        `riavvia il server con:\n\n` +
-        `ng serve --configuration=${languageCode}\n\n` +
-        `La tua preferenza è stata salvata.`
+      this.notify.showInfo(
+        `Per cambiare lingua in ${this.getLanguageName(languageCode)}, riavvia con: ng serve --configuration=${languageCode}. Preferenza salvata.`
       );
       return;
     }
@@ -50,8 +49,8 @@ export class LocaleService {
   // Verifica se siamo in development mode
   private isDevMode(): boolean {
     return !window.location.port ||
-           window.location.hostname === 'localhost' ||
-           window.location.hostname === '127.0.0.1';
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1';
   }
 
   // Ottieni il nome della lingua dal codice

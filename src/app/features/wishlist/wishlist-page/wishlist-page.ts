@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../core/services/cart';
+import { NotificationService } from '../../../core/services/notification.service';
 import { Product } from '../../../core/models/product';
 import { inject } from '@angular/core';
 import { MatAnchor, MatIconButton } from "@angular/material/button";
@@ -20,6 +21,7 @@ import { RouterLink } from '@angular/router';
 export class WishlistPage implements OnInit {
   wishlistService = inject(WishlistService);
   private cartService = inject(CartService);
+  private notify = inject(NotificationService);
 
   ngOnInit() {
     // Carica la wishlist all'inizializzazione
@@ -29,12 +31,11 @@ export class WishlistPage implements OnInit {
   onAddToCart(product: Product) {
     this.cartService.addItem(product.id, 1).subscribe({
       next: () => {
-        console.log(`✓ ${product.title} aggiunto al carrello`);
-        alert(`${product.title} aggiunto al carrello!`);
+        this.notify.showSuccess(`✓ ${product.title} aggiunto al carrello`);
       },
       error: (err) => {
         console.error('Error adding to cart:', err);
-        alert('Errore durante l\'aggiunta al carrello. Assicurati di essere loggato.');
+        this.notify.showError('Errore durante l\'aggiunta al carrello. Assicurati di essere loggato.');
       }
     });
   }
@@ -42,11 +43,11 @@ export class WishlistPage implements OnInit {
   removeItem(itemId: number) {
     this.wishlistService.removeItem(itemId.toString()).subscribe({
       next: () => {
-        console.log('✓ Prodotto rimosso dalla wishlist');
+        this.notify.showInfo('Prodotto rimosso dalla wishlist');
       },
       error: (err) => {
         console.error('Error removing from wishlist:', err);
-        alert('Errore durante la rimozione dalla wishlist.');
+        this.notify.showError('Errore durante la rimozione dalla wishlist.');
       }
     });
   }

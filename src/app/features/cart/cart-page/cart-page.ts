@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../../core/services/cart';
+import { NotificationService } from '../../../core/services/notification.service';
 import { MatCardImage, MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { CommonModule } from "@angular/common";
@@ -20,6 +21,7 @@ import { RouterLink } from '@angular/router';
 export class CartPage implements OnInit {
   cartService = inject(CartService);
   private router = inject(Router);
+  private notify = inject(NotificationService);
 
   ngOnInit() {
     this.cartService.loadCart().subscribe();
@@ -34,7 +36,7 @@ export class CartPage implements OnInit {
       error: (err) => {
         console.error('Error updating quantity:', err);
         const errorMsg = err.error?.error || 'Errore durante l\'aggiornamento della quantità';
-        alert(errorMsg);
+        this.notify.showError(errorMsg);
         // Ricarica il carrello per ripristinare lo stato corretto
         this.cartService.loadCart().subscribe();
       }
@@ -46,7 +48,7 @@ export class CartPage implements OnInit {
         error: (err) => {
           console.error('Error updating quantity:', err);
           const errorMsg = err.error?.error || 'Errore durante l\'aggiornamento della quantità';
-          alert(errorMsg);
+          this.notify.showError(errorMsg);
           // Ricarica il carrello per ripristinare lo stato corretto
           this.cartService.loadCart().subscribe();
         }

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { inject } from '@angular/core';
 import { WishlistService } from '../../../core/services/wishlist';
 import { MatIconModule } from '@angular/material/icon';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-product-card',
@@ -18,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 export class ProductCard {
   private wishlistService = inject(WishlistService);
+  private notify = inject(NotificationService);
   @Input({ required: true }) product!: Product;
   @Output() add = new EventEmitter<Product>();
   addToCart(p: Product) {
@@ -27,12 +29,11 @@ export class ProductCard {
   addToWishlist(p: Product) {
     this.wishlistService.addItem(p.id.toString()).subscribe({
       next: () => {
-        console.log(`✓ ${p.title} aggiunto ai preferiti`);
-        //alert(`${p.title} aggiunto ai preferiti!`);
+        this.notify.showSuccess(`✓ ${p.title} aggiunto ai preferiti`);
       },
       error: (err) => {
         console.error('Error adding to wishlist:', err);
-        alert('Errore durante l\'aggiunta ai preferiti. Assicurati di essere loggato.');
+        this.notify.showError('Errore durante l\'aggiunta ai preferiti. Assicurati di essere loggato.');
       }
     });
 

@@ -3,6 +3,7 @@ import { ProductCard } from '../product-card/product-card';
 import { Product } from '../../../core/models/product';
 import { ProductApi, ProductFilters } from '../../../core/services/product-api';
 import { CartService } from '../../../core/services/cart';
+import { NotificationService } from '../../../core/services/notification.service';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
@@ -30,6 +31,7 @@ const sortMap: Record<Sort, 'price_asc' | 'price_desc' | 'date_asc' | 'date_desc
 export class ProductPage {
   private service = inject(ProductApi);
   private cartService = inject(CartService);
+  private notify = inject(NotificationService);
 
   private filters$ = new BehaviorSubject({
     title: '',
@@ -80,12 +82,11 @@ export class ProductPage {
   onAddToCart(product: Product) {
     this.cartService.addItem(product.id, 1).subscribe({
       next: () => {
-        console.log(`✓ ${product.title} aggiunto al carrello`);
-        //alert(`${product.title} aggiunto al carrello!`);
+        this.notify.showSuccess(`✓ ${product.title} aggiunto al carrello`);
       },
       error: (err) => {
         console.error('Error adding to cart:', err);
-        alert('Errore durante l\'aggiunta al carrello. Assicurati di essere loggato.');
+        this.notify.showError('Errore durante l\'aggiunta al carrello. Assicurati di essere loggato.');
       }
     });
   }
